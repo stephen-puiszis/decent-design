@@ -1,0 +1,14 @@
+%head
+  %meta{charset: "utf-8"}
+  %meta{'http-equiv' => "X-UA-Compatible", :content =>"IE=edge" }
+  %meta{name: "viewport", content: "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" }
+  -# TODO: implement all of these
+  / %title= current_page.data.title || "site_title"
+  / %meta{name: "author", content: site_author }
+  / %meta{name: "google-site-verification", content: google_site_verification_key }
+  / %meta{name: "description", content: description_tag(current_page)  }
+  / %link(rel="shortcut icon" href="/images/favicon.ico")
+  %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel:"stylesheet"}
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "application"
+  / = partial "layouts/analytics"

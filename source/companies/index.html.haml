@@ -1,0 +1,26 @@
+---
+pageable: true
+per_page: 15
+priority: 1
+---
+
+.mdl-grid
+  - if paginate && num_pages > 1
+    %h1
+      Page #{page_number} of #{num_pages}
+    - if prev_page
+      %p= link_to 'Previous page', prev_page
+
+  - if paginate
+    - if next_page
+      %p= link_to 'Next page', next_page
+  - data.companies.each do |key, value|
+    .mdl-card.mdl-cell.mdl-cell--6-col-desktop.mdl-cell--8-col-tablet.mdl-cell--4-mobile.mdl-shadow--2dp
+      .mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing
+        %section.mdl-cell.mdl-cell--6-col-desktop.mdl-cell--4-tablet.mdl-cell--4-mobile
+          = link_to "/companies/#{slugify_snakecase(key)}" do
+            = image_tag logo_url(:companies, key, '200')
+        .section__text.mdl-cell.mdl-cell--6-col-desktop.mdl-cell--4-col-tablet.mdl-cell--4-mobile
+          %h4= value[:name]
+          %h6= value[:description]
+          = link_to "Check it Out", "/companies/#{slugify_snakecase(key)}", class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"

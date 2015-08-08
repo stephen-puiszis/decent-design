@@ -1,0 +1,27 @@
+- if current_article.present?
+  - co = find(:companies, current_article.data.company)
+  = wrap_layout :layout do
+    .mdl-grid
+      .mdl-cell.mdl-cell--10-col-desktop.mdl-cell--8-col-tablet
+        = yield
+      .mdl-cell.mdl-cell--2-col-desktop.mdl-cell--8-col-tablet
+        %h3.mdl-color-text--grey-700= current_article.title
+        %p= current_article.data.description
+        %p= link_to current_article.data.device.capitalize, "/devices/#{slugify_snakecase(current_article.data.device)}"
+        - current_article.data.elements.split(",").each do |elem|
+          - elem.strip!
+          = link_to elem.capitalize, "/elements/#{slugify_snakecase(elem)}", class: 'tag'
+        %hr
+        = link_to "/companies/#{slugify_snakecase(current_article.data.company)}" do
+          = image_tag logo_url(:companies, current_article.data.company, '200')
+        %h4= co.name
+        %p= link_to "Homepage", co.url
+        %p= co.description
+        - co.industries.each do |industry|
+          = link_to "#{industry.capitalize}", "/industries/#{slugify_snakecase(industry)}", class: 'tag'
+        %hr
+        = link_to "View More of Stripe",
+          "/companies/#{slugify_snakecase(current_article.data.company)}",
+          class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+
+

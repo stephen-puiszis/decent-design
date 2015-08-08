@@ -1,0 +1,42 @@
+angel_list:
+  name: Angel List
+  description: Lorem Ipsum
+  url: http://angel.co
+  industries:
+  - finance
+  - crowd_funding
+  - angel_investing
+bitstamp:
+  name: Bit Stamp
+  description: Lorem Ipsum
+  url: http://bitstamp.net
+  industries:
+  - bitcoin
+  - wallets
+coinbase:
+  name: Coinbase
+  description: Lorem Ipsum
+  url: http://coinbase.com
+  industries:
+  - bitcoin
+robinhood:
+  name: Robinhood
+  description: Robinhood is a blacnk
+  url: http://robinhood.com
+  industries:
+  - finance
+  - brokerage
+stripe:
+  name: Stripe
+  description: Stripe is a payments company built for developers
+  url: http://stripe.com
+  industries:
+  - finance
+  - payments
+weathfront:
+  name: Wealthfront
+  description: Stripe is a payments company built for developers
+  url: http://wealthfront.com
+  industries:
+  - finance
+  - wealth_management

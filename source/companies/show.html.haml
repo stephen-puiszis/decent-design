@@ -1,0 +1,27 @@
+---
+pageable: true
+per_page: 15
+priority: 1
+---
+
+.mdl-grid
+  - if paginate && num_pages > 1
+    %h1
+      Page #{page_number} of #{num_pages}
+    - if prev_page
+      %p= link_to 'Previous page', prev_page
+
+  - if paginate
+    - if next_page
+      %p= link_to 'Next page', next_page
+
+- find_articles(:company, company[:key]).each do |article|
+  .mdl-card.mdl-cell.mdl-cell--6-col-desktop.mdl-cell--8-col-tablet.mdl-cell--4-mobile.mdl-shadow--2dp
+    .mdl-card__supporting-text.mdl-grid.mdl-grid--no-spacing
+      %section.mdl-cell.mdl-cell--6-col-desktop.mdl-cell--4-tablet.mdl-cell--4-mobile
+      .section__text.mdl-cell.mdl-cell--6-col-desktop.mdl-cell--4-col-tablet.mdl-cell--4-mobile
+        = link_to article_path(article)  do
+          = image_tag article.data.preview_image_url
+        %h4= article.title
+        %h6= article.data.description
+        = link_to "Check it Out", post_path(article), class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"

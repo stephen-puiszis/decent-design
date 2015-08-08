@@ -1,0 +1,21 @@
+web:
+  name: Web
+  slug: web
+ios:
+  name: iOS
+  slug: ios
+android:
+  name: Android
+  slug: android
+window_phone:
+  name: Windows Phone
+  slug: windows-phone
+blackberry:
+  name: Blackberry
+  slug: blackberry
+osx:
+  name: Mac OSX
+  slug: mac-osx
+windows:
+  name: Windows
+  slug: windows
